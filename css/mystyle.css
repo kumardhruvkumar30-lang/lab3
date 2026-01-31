@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #333;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar Alignment */
+.navbar {
+    background-color: #222;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 14px;
+}
+
+/* Grid Configuration */
+.main-grid {
+    display: grid;
+    /* Sidebar (Rocket) is 320px, the rest is flexible */
+    grid-template-columns: 320px 1fr; 
+    /* The top images are now locked at 250px tall to prevent them from being too big */
+    grid-template-rows: 250px auto; 
+    grid-template-areas: 
+        "sidebar banner"
+        "sidebar main";
+    gap: 15px;
+    padding: 15px;
+}
+
+.sidebar-area { 
+    grid-area: sidebar; 
+}
+
+.banner-area { 
+    grid-area: banner; 
+    display: flex; 
+    gap: 10px; 
+    overflow: hidden; /* Keeps PIC2 and PIC3 from leaking out */
+}
+
+.content-area { 
+    grid-area: main; 
+    background-color: #777; /* Grey background from lab screenshot */
+    padding: 25px; 
+    line-height: 1.6;
+}
+
+/* IMAGE FIX: This forces images to stay in their boxes */
+img {
+    width: 100%;
+    height: 100%;
+    /* This crops the image to fill the box instead of expanding the box */
+    object-fit: cover; 
+    display: block;
+}
+
+.galaxy-img { flex: 2; } /* PIC2: Galaxy takes more width */
+.mars-img { flex: 1; }   /* PIC3: Mars Satellite */
+
+/* Footer */
+.footer {
+    background-color: #222;
+    text-align: center;
+    padding: 15px;
+    width: 100%;
+    border-top: 1px solid #444;
+}
